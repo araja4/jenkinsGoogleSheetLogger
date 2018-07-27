@@ -1,0 +1,7 @@
+META-INF/annotations/hudson.Extension.txt
+META-INF/annotations/org.jenkinsci.Symbol
+io/jenkins/plugins/gSheetLogger/BuildMetricsRecorder.class
+io/jenkins/plugins/gSheetLogger/BuildMetricsRecorder$DescriptorImpl.class
+io/jenkins/plugins/gSheetLogger/BuildMetricsRecorder.stapler
+io/jenkins/plugins/gSheetLogger/GoogleSheetLogger.class
+META-INF/annotations/hudson.Extension
