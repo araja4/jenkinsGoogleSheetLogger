@@ -134,7 +134,7 @@ public class BuildMetricsRecorder extends Recorder implements SimpleBuildStep {
         @Override
         public String getDisplayName() {
             return "Log build info to a google sheet";
-        } //take care of this later
+        }
     }
 
 
