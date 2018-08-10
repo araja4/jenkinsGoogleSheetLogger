@@ -30,8 +30,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class BuildMetricsRecorder extends Recorder implements SimpleBuildStep {
-    private String credStr;
-    private String spreadsheetId;
+    private String credStr; //google service account credentials. The whole json object.
+    private String spreadsheetId; //its the google sheet id that you wanna write to.
 
     @DataBoundConstructor
     public BuildMetricsRecorder(String spreadsheetId, String credStr){
@@ -55,6 +55,8 @@ public class BuildMetricsRecorder extends Recorder implements SimpleBuildStep {
         this.spreadsheetId = spreadsheetId;
     }
 
+    //this method first makes a GET request to the wfapi which return the info of the run corresponding to the build_url
+    //then this method converts the json text response into a JSONOject and returns that object.
     public JSONObject wfapiResponse(String build_url) throws IOException {
         URL yahoo = new URL(build_url+"wfapi/describe");
         URLConnection yc = yahoo.openConnection();
@@ -72,18 +74,24 @@ public class BuildMetricsRecorder extends Recorder implements SimpleBuildStep {
     @Override
     public void perform(@Nonnull Run<?, ?> run, @Nonnull FilePath filePath, @Nonnull Launcher launcher, @Nonnull TaskListener taskListener) throws InterruptedException, IOException {
 
+        //accessing the BUILD_URL env to use for the wfapi
         final EnvVars env = run.getEnvironment(taskListener);
         String build_url = env.get("BUILD_URL");
+
+        //using the JSONObject to get the run info
         JSONObject jsonResponse = wfapiResponse(build_url);
-        JSONArray stages = jsonResponse.getJSONArray("stages");
+        JSONArray stages = jsonResponse.getJSONArray("stages"); //stages of the pipeline
         ArrayList<Object> gSheetData = new ArrayList<Object>();
         Date runDate = new Date((long)jsonResponse.get("startTimeMillis"));
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-        run.setResult(Result.SUCCESS); //explain why this doesn't affect the build result
 
         gSheetData.add(formatter.format(runDate));
         gSheetData.add(jsonResponse.getString("id"));
         gSheetData.add(jsonResponse.getString("name"));
+
+        //this method has no effect when the result is already set and worse than the proposed result
+        //only setting this so getResult isn't null.
+        run.setResult(Result.SUCCESS);
         gSheetData.add(run.getResult().toString());
 
         formatter = new SimpleDateFormat("HH:mm:ss");
@@ -96,6 +104,8 @@ public class BuildMetricsRecorder extends Recorder implements SimpleBuildStep {
                 stageStatus += " error message: " + stage.getJSONObject("error").getString("message");
             gSheetData.add(stageStatus);
             gSheetData.add(formatter.format(new Date((long)stage.get("startTimeMillis"))));
+
+            //there is no stage level endTime in the wfapi so generating endTime using startTim+durationTime
             gSheetData.add(formatter.format(new Date((long)stage.get("startTimeMillis")+(int)stage.get("durationMillis"))));
         }
 

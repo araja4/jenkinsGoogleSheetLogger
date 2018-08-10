@@ -20,22 +20,14 @@ import java.util.Collections;
 import java.util.List;
 
 public class GoogleSheetLogger {
-    private static final String APPLICATION_NAME = "Jenkins gSheetLogger"; //maybe update this later too
+    private static final String APPLICATION_NAME = "Jenkins Google Sheet Logger";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
-    /**
-     * Global instance of the scopes required by this quickstart.
-     * If modifying these scopes, delete your previously saved credentials/ folder.
-     */
     private static final List<String> SCOPES = Collections.singletonList(SheetsScopes.SPREADSHEETS);
 
-
-    /**
-     * Prints the names and majors of students in a sample spreadsheet:
-     * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-     */
     public String log(String credStr, String spreadsheetId, Object [] value) throws GeneralSecurityException, IOException {
 
         GoogleCredential credential = GoogleCredential.fromStream(new ByteArrayInputStream(credStr.getBytes(StandardCharsets.UTF_8))).createScoped(SCOPES);
+        //since we are appending to the next available row the range does not have to be exact.
         String range = "A:B";
         final String valueInputOption = "USER_ENTERED";
         // How the input data should be inserted.
@@ -45,7 +37,6 @@ public class GoogleSheetLogger {
                 Arrays.asList(
                         value
                 )
-                // Additional rows ...
         );
         ValueRange requestBody = new ValueRange().setValues(values);
 

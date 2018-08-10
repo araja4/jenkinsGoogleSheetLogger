@@ -17,7 +17,6 @@
     </properties>
     <name>Google Sheets Logger</name>
     <description>Logs pipeline run info to a specified google sheet. Currently logs the following build info date, start time, build number, duration, and build result. </description>
-    <!-- The default licence for Jenkins OSS Plugins is MIT. Substitute for the applicable one if needed. -->
     <licenses>
         <license>
             <name>MIT License</name>
