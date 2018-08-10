@@ -16,7 +16,7 @@
         <java.level>8</java.level>
     </properties>
     <name>Google Sheets Logger</name>
-    <description>Logs run info to a specified google sheet. Currently logs the following build info date, start time, build number, duration, and build result. </description>
+    <description>Logs pipeline run info to a specified google sheet. Currently logs the following build info date, start time, build number, duration, and build result. </description>
     <!-- The default licence for Jenkins OSS Plugins is MIT. Substitute for the applicable one if needed. -->
     <licenses>
         <license>
@@ -40,25 +40,14 @@
             <artifactId>google-api-services-sheets</artifactId>
             <version>v4-rev516-1.23.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180130</version>
+        </dependency>
     </dependencies>
 
-    <!-- If you want this to appear on the wiki page:
-    <developers>
-      <developer>
-        <id>bhacker</id>
-        <name>Bob Q. Hacker</name>
-        <email>bhacker@nowhere.net</email>
-      </developer>
-    </developers> -->
-
-    <!-- Assuming you want to host on @jenkinsci:
-    <url>https://wiki.jenkins.io/display/JENKINS/TODO+Plugin</url>
-    <scm>
-        <connection>scm:git:git://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
-        <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
-        <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
-    </scm>
-    -->
     <repositories>
         <repository>
             <id>repo.jenkins-ci.org</id>
