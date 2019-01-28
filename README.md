@@ -31,4 +31,4 @@ These instructions will get you a copy of this plugin up and running on your Jen
 10. Copy the output and go back to your configure pipeline tab.
 11. Past the output from above in the post step of your pipeline script.
 12. Click the `Save` button.
-13. Next time this job is run its run info will be logged to the Google Sheet from step 1.
+13. Next time this job is run its run info will be appended to the Google Sheet from step 1.
