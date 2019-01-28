@@ -11,6 +11,19 @@ A jenkins plugin that logs pipeline run info to a specified google sheet. Curren
 6. Restart your Jenkins instance.
 
 ## How to use this plugin
-1. Go to a pipeline job or creat a new pipeline job in your Jenkins.
-2. Click on configure (skip this step if you created a new pipeline job).
+1. [Creat a Google Service Account](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#creatinganaccount) (you can ignore everything relating to domain-wide authority). After creating your service account a json file will be created and downloaded to your machine. You will need this later.
+2. Creat a Google sheet with your Google account and give your Google Service Account edit permission to this sheet (you can use the email of the service account to share).
+3. Go to a pipeline job or creat a new pipeline job in your Jenkins instance.
+4. Click on _configure_ (skip this step if you created a new pipeline job).
+5. Select the _Pipeline_ tab.
+6. Click on _Pipeline Syntax_ hyperlink at the bottom.
+7. Select _gSheetLogger: Log build info to a google sheet_ for Sample Step.
+6. Copy the content of the json file from step 1 and past it in the _Google Service Account creds_ field.
+7. Insert the sheet id in the _Spreadsheet id_ field. This ID is the value between the "/d/" and the "/edit" in the URL of the google sheet created in step 2.
+8. Click the _Generate Pipeline Script_ button.
+9. Copy the output and go back to your configure pipeline tab.
+10. Past the output from above in the post step of the pipeline script.
+11. Click the _Save_ button.
+12. Next time the job is run the run info will be logged to the Google sheet from step 2.
+
 
