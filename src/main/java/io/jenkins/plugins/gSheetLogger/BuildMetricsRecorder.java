@@ -56,7 +56,7 @@ public class BuildMetricsRecorder extends Recorder implements SimpleBuildStep {
     }
 
     //this method first makes a GET request to the wfapi which return the info of the run corresponding to the build_url
-    //then this method converts the json text response into a JSONOject and returns that object.
+    //then this method converts the json text response into a JSONObject and returns that object.
     public JSONObject wfapiResponse(String build_url) throws IOException {
         URL yahoo = new URL(build_url+"wfapi/describe");
         URLConnection yc = yahoo.openConnection();
