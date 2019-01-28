@@ -24,6 +24,6 @@ A jenkins plugin that logs pipeline run info to a specified google sheet. Curren
 9. Copy the output and go back to your configure pipeline tab.
 10. Past the output from above in the post step of the pipeline script.
 11. Click the _Save_ button.
-12. Next time the job is run the run info will be logged to the Google sheet from step 2.
+12. Next time this job is run its run info will be logged to the Google sheet from step 2.
 
 
