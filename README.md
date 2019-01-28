@@ -8,6 +8,7 @@ These instructions will get you a copy of this plugin up and running on your Jen
 1. [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 2. [Maven](https://maven.apache.org/)
 3. [Creat a Google Service Account](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#creatinganaccount) (you can ignore everything relating to domain-wide authority). After creating your service account a json file will be created and downloaded to your machine. You will need this during plugin setup.
+4. Make sure `Jenkins URL` is set in `system configuration`.
 
 ### Installing
 1. Download this repo
