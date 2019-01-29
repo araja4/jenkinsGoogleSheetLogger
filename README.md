@@ -18,7 +18,7 @@ These instructions will get you a copy of this plugin up and running on your Jen
 
 ### Installing
 1. Download this repo
-2. Using command line to `cd` into the downloaded repo
+2. Using command line `cd` into the downloaded repo
 3. run `mvn package` this will generate a gSheetLogger.hpi file in the target directory (./target/gSheetLogger.hpi)
 4. In Jenkins go to the `Jenkins Home-> Manage Jenkins-> Manage Plugins-> Advanced`
 5. Under `Upload Plugin` browse for the `gSheetLogger.hpi` file from above and click `Upload`
