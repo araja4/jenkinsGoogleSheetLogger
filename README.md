@@ -36,5 +36,34 @@ These instructions will get you a copy of this plugin up and running on your Jen
 9. Click the `Generate Pipeline Script` button
 10. Copy the output and go back to your configure pipeline tab.
 11. Past the output from above in the post step of your pipeline script.
+    - Example pipeline script:
+    ```
+    pipeline{
+       agent any
+       stages {
+           stage("1") {
+               steps {
+                   sleep 1
+               }
+           }
+           stage("2") {
+               steps {
+                   sleep 1
+               }
+           }
+           stage("3") {
+               steps {
+                   sleep 1 
+
+               }
+           }
+       }
+       post {
+           always {
+               //Insert output here
+           }
+       }
+    }
+    ```
 12. Click the `Save` button
 13. Next time this job is run its run info will be appended to the Google Sheet from step 1.
