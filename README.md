@@ -5,12 +5,12 @@ Is a Jenkins plugin that logs pipeline run info to a specified Google Sheet. Cur
 These instructions will get you a copy of this plugin up and running on your Jenkins instance.
 
 ### Prerequisites
-1a. [Jenkins](https://jenkins.io/download/)
-1b. Install the pipeline plugin 
-    - In Jenkins go to `Jenkins Home-> Manage Jenkins-> Manage Plugins-> Available`
-    - Search for `pipeline` and check the box for `Pipeline`
-    - Click the `Download now and install after restart` button
-    - Restart Jenkins
+1. [Jenkins](https://jenkins.io/download/)
+   - Install the pipeline plugin 
+     - In Jenkins go to `Jenkins Home-> Manage Jenkins-> Manage Plugins-> Available`
+     - Search for `pipeline` and check the box for `Pipeline`
+     - Click the `Download now and install after restart` button
+     - Restart Jenkins
 2. [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 3. [Maven](https://maven.apache.org/)
 4. [Creat a Google Service Account](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#creatinganaccount) (you can ignore everything relating to domain-wide authority). After creating your service account a json file will be created and downloaded to your machine. You will need this during plugin setup.
