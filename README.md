@@ -25,7 +25,7 @@ These instructions will get you a copy of this plugin up and running on your Jen
 6. Restart Jenkins
 
 ### Plugin setup
-1. Create a Google Sheet with your Google account and give your Google Service Account edit permission to this sheet (you can use the email address of the service account to do this).
+1. Create a Google Sheet with your Google account and give your Google Service Account edit permission to this sheet. You can use the email address of the service account to do this.
 2. Go to a pipeline job or create a new pipeline job in your Jenkins instance.
 3. Click `configure` (skip this step if you created a new pipeline job)
 4. Select the `Pipeline` tab
