@@ -31,7 +31,7 @@ These instructions will get you a copy of this plugin up and running on your Jen
 4. Select the `Pipeline` tab
 5. Click on the `Pipeline Syntax` hyperlink at the bottom
 6. Select `gSheetLogger: Log build info to a google sheet` from the `Sample Step` dropdown menu.
-7. Copy the content of the json file from prerequisite-step-3 and past it in the `Google Service Account creds` field.
+7. Copy the content of the json file from prerequisite-step-4 and past it in the `Google Service Account creds` field.
 8. Insert the sheet id in the `Spreadsheet id` field. This ID is the value between the "/d/" and the "/edit" in the URL of the Google Sheet created in step 1.
 9. Click the `Generate Pipeline Script` button
 10. Copy the output and go back to your configure pipeline tab.
